@@ -73,4 +73,4 @@ for _ in range(family_count):
         total_price += 10
     elif age > 12:
         total_price += 15
-print(f"Total ticket price: ${total_price}")
+print(f"Total ticket price: ${total_price}")   
