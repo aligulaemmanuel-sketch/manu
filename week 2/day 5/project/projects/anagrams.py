@@ -5,14 +5,14 @@ from anagram_checker import AnagramChecker
 WORD_PATTERN = re.compile(r'^[a-zA-Z]+$')
  
 
-def validate_single_word(word):
+def validate_single_word(word: str) -> bool:
     word = word.strip()
     if not word:
         return False
     return bool(WORD_PATTERN.fullmatch(word))
 
 
-def ask_word(prompt):
+def ask_word(prompt: str) -> str:
     while True:
         word = input(prompt).strip()
         if validate_single_word(word):
@@ -20,11 +20,11 @@ def ask_word(prompt):
         print("Invalid input. Enter exactly one word using only letters.")
 
 
-def main():
+def main() -> None:
     print("Anagram Checker CLI")
     try:
         checker = AnagramChecker(file_path="words.txt")
-    except FileNotFoundError:
+    except (FileNotFoundError, OSError):
         print("Error: 'words.txt' not found. Please ensure the file exists in the projects folder.")
         return
 
